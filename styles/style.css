@@ -180,6 +180,8 @@ body{
 	z-index: 50;
 }
 #sliders .slider h2{
+	position: absolute;
+	top: 40%;
 	font-size: 36px;
 	font-family: 'Raleway', sans-serif;
 	text-align: center;
@@ -187,6 +189,8 @@ body{
 	z-index: 100;
 }
 #sliders .slider h1{
+	position: absolute;
+	top: 45%;
 	font-family: 'Raleway', sans-serif;
 	font-size: 52px;
 	font-weight: bold;
@@ -194,6 +198,8 @@ body{
 	z-index: 100;
 }
 #sliders .slider p{
+	position: absolute;
+	top: 50%;
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
@@ -202,6 +208,8 @@ body{
 	z-index: 100;
 }
 #sliders .slider_button{
+	position: absolute;
+	top: 60%;
 	display: flex;
 	justify-content: center;
 	align-items: center;

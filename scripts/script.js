@@ -2,6 +2,9 @@ var CountSlider = 0;
 var Blocked = false;
 $(function(){
 	bindSlider();
+	$("img").mousedown(function(){
+		return false;
+	});
 });
 
 $(window).scroll(function(){
