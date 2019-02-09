@@ -2,17 +2,37 @@
   padding: 0;
   margin: 0;
 }
+button,
 input{
 	outline: none;
 	background: none;
 	border: none;
 }
+/* при прокрутке изменение цветов */
+.main.scrolled{
+	background-color: white;
+}
+.main.scrolled .container{
+	height: 77px;
+}
+.main.scrolled path{
+	fill: #a3a2a0;
+}
+.main.scrolled a{
+	color: #a3a2a0;
+}
+.main.scrolled .waxom_logo{
+	color: #a3a2a0;
+}
 /* Панель навигации главного меню */
+.main{
+	font-size: 0;
+}
 .main{
 	display: flex;
 	position: fixed;
 	justify-content: center;
-  width: 100%;
+	width: 100%;
 }
 /* Контейнер, для центровки */
 .main .container{
@@ -20,32 +40,34 @@ input{
 	justify-content: space-between;
 	align-items: center;
 	width: 1170px;
-	height: 136px;
-}
-/* Лого(картинка) */
-.waxom_logo::before{
-  display: inline-block;
-  content: "";
-  background: url(../src/waxom_logo.png) no-repeat 0 0;
-  width: 64px;
-  height: 58px;
+	min-width: 1000px;
+	height: 137px;
+	font-size: 0;
+	transition: height 0.5s ease-in-out;
 }
 /* Лого(надпись) */
+.waxom_logo path{
+	transition: fill 0.8s ease-in-out 0.1s;
+}
 .waxom_logo{
 	display: inline-block;
   font-family: 'Raleway', sans-serif;
   font-size: 34px;
-  color: #e7e7e6;
+	color: #e7e7e6;
+	transition: color 0.8s ease-in-out 0.1s;
 }
 /* Главное меню */
 .main_menu{
 	display: inline-block;
+	font-size: 0;
 }
+/* Элементы меню */
 .main_menu li{
 	display: inline-block;
 	margin-left: 30px;
 	list-style: none;
 }
+/* Отступы элементов */
 .main_menu li:nth-child(1){
 	margin-left: 0;
 }
@@ -55,57 +77,89 @@ input{
 .main_menu li:nth-last-child(2){
 	margin-left: 63px;
 }
+.main_menu a.active{
+	color: #c7b299;
+}
 .main_menu a{
 	font-family: 'Montserrat', sans-serif;
 	font-size: 14px;
 	text-decoration: none;
 	color: #e7e7e6;
-	transition: color 0.3s ease-in-out;
+	transition: color 0.8s ease-in-out 0.1s;
 }
 .main_menu a:hover{
 	color: #c7b299;
-	transition: color 0.3s ease-in-out;
 }
-.main_menu .basket{
-	background: url("../src/main_menu_basket.png") no-repeat 0 0;
-	width: 19px;
-	height: 24px;
-	transition: background 0.3s ease-in-out;
+/* Корзина, поиск */
+.main_menu .basket path,
+.main_menu .search path{
+	transition: fill 0.8s ease-in-out 0.1s;
 }
-.main_menu .search{
-	background: url("../src/main_menu_search.png") no-repeat 0 0;
-	width: 24px;
-	height: 24px;
-	transition: background 0.3s ease-in-out;
+.main_menu .basket:hover path,
+.main_menu .search:hover path{
+	fill: #d3c1ad;
 }
-.main_menu .search:hover,
-.main_menu .basket:hover{
-	background: url("../src/main_menu_basket_hover.png") no-repeat 0 0;
-	transition: background 0.3s ease-in-out;
+body{
+	min-width: 1180px;
 }
 /* Section(home) */
 #home{
+	display: flex;
+	justify-content: center;
+	align-items: center;
   background: url(../src/home_bg.png) no-repeat 0 0;
   height: 1024px;
   width: 100%;
 }
-.left_arrow,
-.right_arrow{
-	background: url(../src/home_arrow.png) no-repeat 0 0;
-	width: 40px;
-	height: 73px;
+/* Контейнер для центровки группы элементов в центре */
+#home .container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 84%;
 }
-.left_arrow{
-
+/* Стрелки */
+.left_arrow path,
+.right_arrow path{
+	transition: fill 0.8s ease-in-out 0.1s,
+							opacity 0.8s ease-in-out 0.1s;
 }
-.right_arrow{
-	transform: rotate(180deg);
+.left_arrow:hover path,
+.right_arrow:hover path{
+	fill: #d3c1ad;
+	opacity: 1;
 }
-.left_arrow:hover,
-.right_arrow:hover{
-	background: url(../src/home_arrow_hover.png) no-repeat 0 0;
+.home_middle{
+	display: inline-block;
+	color: #ffffff;
+}
+.home_middle h2{
+	font-size: 36px;
+	font-family: 'Raleway', sans-serif;
+	text-align: center;
+	margin-bottom: 4px;
+}
+.home_middle h1{
+	font-family: 'Raleway', sans-serif;
+	font-size: 52px;
+	font-weight: bold;
+	text-align: center;
+}
+.home_middle p{
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	margin-top: 17px;
+	margin-bottom: 52px;
+}
+/* Контейнер для центровки кнопки */
+.home_middle .container{
+	display: flex;	
+	justify-content: center !important;
+	width: 100%;
 }
 .home_start{
+	display: inline-block;
 	width: 170px;
 	height: 50px;
 	background-color: #998675;
@@ -113,16 +167,222 @@ input{
 	border-radius: 3px;
 	color: #ffffff;
 }
-.home_middle{
+#occupation{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	width: 100%;
+	height: 373px;
+}
+#occupation ul{
+	display: flex;
+	justify-content: space-between;
+	width: 1180px;
+}
+#occupation li{
+	display: block;
+	list-style: none;
+	width: 270px;
+	height: 213px;
+}
+#occupation .container{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
+}
+#occupation path{
+	transition: fill 1s ease-in-out 0.1s;
+}
+#occupation h1{
+	font-family: 'Raleway', sans-serif;
+	font-size: 22px;
+	text-align: center;
+	margin-bottom: 10px;
+	color: #555555;
+	transition: color 1s ease-in-out 0.1s;
+}
+#occupation p{
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+	font-size: 13.8px;
+	font-weight: 300;
+	line-height: 24px;
+	color: #8c8c8c;
+}
+#occupation li::after{
+	display: block;
+	content: "";
+	width: 70px;
+	height: 3px;
+	margin: auto;
+	margin-top: 23px;
+	background-color: #f1eee9;
+	transition: background-color 1s ease-in-out 0.1s;	
+}
+#occupation li:hover path{
+	fill: #c7b299; 
+}
+#occupation li:hover h1{
+	color: #c7b299;
+}
+#occupation li:hover::after{
+	background-color: #c7b299;
+}
+#realization_ideas{
+	display: flex;
+	justify-content: center;
+	background: url(../src/bg_realization_ideas.png) no-repeat 0 0;
+	width: 100%;
+	height: 700px;
+}
+#realization_ideas .container{
+	margin-top: 80px;
+}
+#realization_ideas h1{
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+	font-size: 30px;
+	color: #555555;
+}
+#realization_ideas p{
+	margin-top: 20px;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	line-height: 28px;
+	color: #8c8c8c;
+}
+#word_press{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 150px;
+	background-color: #3d2a22;
+}
+#word_press .container{
+	display: flex;
+	justify-content: space-between;
+	width: 1170px;
+}
+#word_press h1{
+	font-family: 'Raleway', sans-serif;
+	font-size: 28px;
+	color: white;
+}
+#word_press h1 span{
+	color: #c7b299;
+}
+#word_press p{
+	margin-top: 5px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+	color: #615855;
+}
+#word_press a{
+	display: block;
+	width: 170px;
+	height: 50px;
+	background-color: #998675;
+	box-shadow: #736357 0 3px 0;
+	border-radius: 3px;
+	text-align: center;
+	text-decoration: none;
 	color: #ffffff;
+	font-family: 'Raleway', sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 50px;
 }
-.home_middle h2{
-	font-size: 36px;
-	font-family: Myriad Pro;
+#last_projects .introduction{
+	padding-top: 80px;
 }
-.home_middle h1{
+#last_projects .introduction h1{
+	font-family: 'Raleway', sans-serif;
+	font-size: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #555555;
+}
+#last_projects .introduction p{
+	margin-top: 20px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 28px;
+	text-align: center;
+	color: #615855;
+}
+#last_projects .filter{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-top: 34px;
+}
+#last_projects .filter li{
+	list-style: none;
+	margin-right: 10px;
+}
+#last_projects .filter li:last-child{
+	margin-right: 0;
+}
+#last_projects .filter input{
+	padding: 9px 18px 10px 17px;
+	border: 1px solid #ebebeb;
+	border-radius: 5px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 14px;
+	color: #8c8c8c;
+}
+#last_projects .filter .selected{
+	border-color: #998675;
+	background-color: #998675;
+	color: white;
+}
+#last_projects .projects{
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	width: 1170px;
+	margin: 10px auto 0 auto;
+	font-size: 0;
+}
+#last_projects .projects li{
+	margin: 30px 30px 0 0;	
+}
+#last_projects .projects li:nth-child(3n){
+	margin-right: 0px;
+}
+#last_projects .information{
+	position: relative;
+	width: 368px;
+	height: 98px;
+	border: 1px solid #fbfaf8;
+	background-color: #fbfaf8;
 	
 }
-.home_middle p{
-	
+.triangle{
+	position: absolute;
+	top: -10px;
+	left: 20px;
+}
+#last_projects .information h2{
+	margin: 30px 0 0 30px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 20px;
+	color: #c7b299;
+}
+#last_projects .information p{
+	margin: 15px 0 0 30px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 14px;
+	color: #d1d1d1;
 }
