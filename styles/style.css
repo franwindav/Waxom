@@ -11,6 +11,7 @@ input{
 /* при прокрутке изменение цветов */
 .main.scrolled{
 	background-color: white;
+	z-index: 1000;
 }
 .main.scrolled .container{
 	height: 77px;
@@ -296,6 +297,9 @@ body{
 	font-weight: bold;
 	line-height: 50px;
 }
+#last_projects{
+	padding-bottom: 83px;
+}
 #last_projects .introduction{
 	padding-top: 80px;
 }
@@ -315,17 +319,17 @@ body{
 	text-align: center;
 	color: #615855;
 }
-#last_projects .filter{
+#last_projects .filters{
 	display: flex;
 	justify-content: center;
 	width: 100%;
 	margin-top: 34px;
 }
-#last_projects .filter li{
+#last_projects .filter{
 	list-style: none;
 	margin-right: 10px;
 }
-#last_projects .filter li:last-child{
+#last_projects .filter:last-child{
 	margin-right: 0;
 }
 #last_projects .filter input{
@@ -337,8 +341,17 @@ body{
 	font-size: 14px;
 	line-height: 14px;
 	color: #8c8c8c;
+	transition:	
+		border-color 0.7s ease-in-out 0.1s,
+		background-color 0.7s ease-in-out 0.1s,
+		color 0.9s ease-in-out 0.1s;
 }
-#last_projects .filter .selected{
+#last_projects .filters .selected{
+	border-color: #998675;
+	background-color: #998675;
+	color: white;
+}
+#last_projects .filter:hover input{
 	border-color: #998675;
 	background-color: #998675;
 	color: white;
@@ -351,11 +364,44 @@ body{
 	margin: 10px auto 0 auto;
 	font-size: 0;
 }
-#last_projects .projects li{
+#last_projects .project{
+	position: relative;
 	margin: 30px 30px 0 0;	
 }
-#last_projects .projects li:nth-child(3n){
+#last_projects .project .link{
+	left: 145px;
+	top: 107px;
+}
+#last_projects .project .magnifier{
+	left: 200px;
+	top: 107px;
+}
+#last_projects .project .link,
+#last_projects .project .magnifier{
+	position: absolute;
+	opacity: 0;
+	transition: opacity 0.7s ease-in-out 0.1s;
+}
+#last_projects path{
+	transition: fill 0.7s ease-in-out 0.1s;
+}
+#last_projects .project::before{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 370px;
+	height: 237px;
+	background-color: #111111;
+	opacity: 0;
+	transition: opacity 0.7s ease-in-out 0.1s;
+}
+#last_projects .project:nth-child(3n){
 	margin-right: 0px;
+}
+#last_projects img{
+	width: 370px;
+	height: 237px;
 }
 #last_projects .information{
 	position: relative;
@@ -363,9 +409,11 @@ body{
 	height: 98px;
 	border: 1px solid #fbfaf8;
 	background-color: #fbfaf8;
-	
+	transition: 
+		background-color 0.7s ease-in-out 0.1s,
+		border-color 0.7s ease-in-out 0.1s;
 }
-.triangle{
+#last_projects .triangle{
 	position: absolute;
 	top: -10px;
 	left: 20px;
@@ -385,4 +433,42 @@ body{
 	font-size: 14px;
 	line-height: 14px;
 	color: #d1d1d1;
+}
+#last_projects .information h2,
+#last_projects .information p{
+	transition: color 0.7s ease-in-out 0.1s;
+}
+#last_projects .project:hover .link,
+#last_projects .project:hover .magnifier{
+	opacity: 1;
+}
+#last_projects .project:hover .link:hover path,
+#last_projects .project:hover .magnifier:hover path{
+	fill: #c7b299;
+}
+#last_projects .project:hover::before{
+	opacity: 0.7;
+}
+#last_projects .project:hover .information{
+	background-color: #362f2d;
+	border-color: #362f2d;
+}
+#last_projects .project:hover .triangle path{
+	fill: #362f2d;
+}
+#last_projects .project:hover .information h2{
+	color: white;
+}
+#last_projects .project:hover .information p{
+	color: #c7b299;
+}
+#last_projects .load_more{
+	margin: 40px auto 0 auto;
+	display: block;
+	width: 170px;
+	height: 50px;
+	background-color: #998675;
+	box-shadow: #736357 0 3px 0;
+	border-radius: 3px;
+	color: #ffffff;
 }
