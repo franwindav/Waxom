@@ -144,8 +144,9 @@ input{
 	position: relative;
 	justify-content: space-between;
 	align-items: center;
-  height: 1024px;
+  	height: 1024px;
 	width: 100%;
+	min-height: 432px !important;
 	background-color: #191919;
 	overflow: hidden;
 	z-index: 0;
@@ -187,6 +188,8 @@ input{
 	left: 0;
 	width: 100%;
 	height: auto;
+	min-height: 432px !important;
+	min-width: 810px !important;
 	z-index: 50;
 }
 #sliders .slider video{
@@ -196,6 +199,9 @@ input{
 	right: 0;
 	bottom: 0;
 	width: 100%;
+	height: auto;
+	min-height: 432px !important;
+	min-width: 810px !important;
 	top: auto;
 	z-index: 50;
 }
@@ -1227,6 +1233,9 @@ input{
 	.waxom_logo{
 		font-size: 30px;
 	}
+	#sliders{
+		width: auto;
+	}
 	#last_projects p{
 		width: 412px;
 	}
@@ -1247,5 +1256,81 @@ input{
 	}
 	#mobile_devices .container div{
 		width: 80%;
+	}
+}
+@media screen and (max-width: 600px){
+	#sliders .arrow{
+		display: none;
+	}
+	#occupation ul{
+		width: 270px;
+	}
+	#occupation li{
+		margin-right: 0;
+	}
+	#occupation li:not(:last-child){
+		margin-bottom: 50px;
+	}
+	#last_projects .filters{
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+	}
+	#last_projects .filter{
+		margin-right: 0;
+		margin-bottom: 20px;
+	}
+	#counter ul{
+		width: 130px;
+	}
+	#counter li{
+		margin-right: 0;
+		margin-bottom: 60px;
+	}
+	#contents .logos{
+		width: 210px;
+	}
+	#contents .logo{
+		margin-right: 0;
+	}
+	#upper .container{
+		width: 270px;
+	}
+	#upper .container > div{
+		margin-right: 0;
+		margin-bottom: 30px;
+	}
+	#under .container{
+		width: auto;
+		flex-direction: column;
+		justify-content: center;
+		height: auto;
+	}
+	#under .container ul{
+		padding-bottom: 20px;
+	}
+}
+@media screen and (max-width: 550px){
+	#word_press .container {
+		width: 350px;
+	}
+}
+@media screen and (max-width: 500px){
+	#sliders .slider h1{
+		font-size: 30px;
+	}
+	#mobile_devices .container img{
+		width: 80%;
+	}
+	#sliders .slider h2 {
+    font-size: 25px;
+	}
+	#realization_ideas p,
+	#realization_ideas h1 {
+		width: 300px;
+	}
+	#last_projects p,
+	#last_projects h1 {
+		width: 300px;
 	}
 }
