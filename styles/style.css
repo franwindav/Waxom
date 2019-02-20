@@ -14,14 +14,20 @@ input{
 	position: fixed;
 	justify-content: center;
 	width: 100%;
+	background-color: transparent;
+	transition: background-color 0.5s ease-in-out;
 	font-size: 0;
+	z-index: 1000;
 }
 .main.scrolled{
 	background-color: white;
-	z-index: 1000;
 }
 /* Контейнер, для центровки */
+.main.scrolled .container{
+	height: 77px;
+}
 .main .container{
+	position: relative;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -30,9 +36,6 @@ input{
 	height: 137px;
 	font-size: 0;
 	transition: height 0.5s ease-in-out;
-}
-.main.scrolled .container{
-	height: 77px;
 }
 /* Лого(надпись) */
 .waxom_logo path{
@@ -100,17 +103,50 @@ input{
 .main_menu .search:hover path{
 	fill: #c7b299;
 }
+.up_arrow{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	z-index: -100;
+}
+.up_arrow .container{
+	position: absolute;
+	bottom: -50px;
+	right: 30px;
+	width: 50px;
+	height: 50px;
+	background: transparent;
+	transition: 
+		bottom 0.5s ease-in-out;
+}
+.up_arrow .container.scrolled{
+	bottom: 30px;
+	z-index: 1000;
+}
+.up_arrow path{
+	z-index: 1000;
+	transition: 
+		fill 0.5s ease-in-out,
+		opacity 0.5s ease-in-out;
+}
+.up_arrow .container:hover path{
+	fill: #d3c1ad;
+	opacity: 1;
+}
 body{
 	min-width: 1180px;
 }
 /* Section(home) */
 #home{
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-  background: url(../src/home_bg.png) no-repeat 0 0;
   height: 1024px;
-  width: 100%;
+	width: 100%;
+	background-color: #111111;
+	z-index: 0;
 }
 /* Контейнер для центровки группы элементов в центре */
 #home .container{
@@ -120,53 +156,88 @@ body{
 	width: 84%;
 }
 /* Стрелки */
-.left_arrow path,
-.right_arrow path{
+#home .arrow path{
 	transition: fill 0.8s ease-in-out 0.1s,
 							opacity 0.8s ease-in-out 0.1s;
 }
-.left_arrow:hover path,
-.right_arrow:hover path{
+#home .arrow:hover path{
 	fill: #d3c1ad;
 	opacity: 1;
 }
-.home_middle{
+#home .slider{
 	display: inline-block;
 	color: #ffffff;
 }
-.home_middle h2{
+#home .slider img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -10;
+}
+#home .slider h2{
 	font-size: 36px;
 	font-family: 'Raleway', sans-serif;
 	text-align: center;
 	margin-bottom: 4px;
 }
-.home_middle h1{
+#home .slider h1{
 	font-family: 'Raleway', sans-serif;
 	font-size: 52px;
 	font-weight: bold;
 	text-align: center;
 }
-.home_middle p{
+#home .slider p{
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
 	margin-top: 17px;
 	margin-bottom: 52px;
 }
-/* Контейнер для центровки кнопки */
-.home_middle .container{
+#home .slider .container{
 	display: flex;	
 	justify-content: center !important;
 	width: 100%;
 }
-.home_start{
-	display: inline-block;
+#home .slider_button{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 170px;
 	height: 50px;
 	background-color: #998675;
 	box-shadow: #736357 0 3px 0;
 	border-radius: 6px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 14px;
+	font-weight: bold;
 	color: #ffffff;
+}
+#home .dots{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	position: absolute;
+	bottom: 40px;
+	left: auto;
+}
+#home .dot{
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #989695;
+	border: 2px solid transparent;
+	transition: 
+		background-color 1s ease-in-out,
+		border-color 1s ease-in-out;
+}
+#home .dot:not(:last-of-type){
+	margin-right: 10px;
+}
+#home .dot.active{
+	background-color: transparent;
+	border: 2px solid #d3c1ad;
 }
 #occupation{
 	display: flex;
@@ -234,13 +305,11 @@ body{
 }
 #realization_ideas{
 	display: flex;
-	justify-content: center;
-	background: url(../src/bg_realization_ideas.png) no-repeat 0 0;
+	align-items: center;
+	flex-direction: column;
 	width: 100%;
-	height: 700px;
-}
-#realization_ideas .container{
-	margin-top: 80px;
+	padding-top: 80px;
+	background-color: #fbfaf8;
 }
 #realization_ideas h1{
 	text-align: center;
@@ -250,11 +319,34 @@ body{
 }
 #realization_ideas p{
 	margin-top: 20px;
+	margin-bottom: 35px;
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
 	line-height: 28px;
 	color: #8c8c8c;
+}
+#realization_ideas .pictures{
+	/* 1230 482 */
+	position: relative;
+	width: 1230px;
+	height: 482px;
+}
+#realization_ideas .pictures img{
+	position: absolute;
+}
+#realization_ideas .left{
+	bottom: 0;
+	left: 0;
+}
+#realization_ideas .middle{
+	top: 0;
+	left: 230px;
+	z-index: 100;
+}
+#realization_ideas .right{
+	bottom: 0;
+	right: 0;
 }
 #word_press{
 	display: flex;
@@ -300,19 +392,17 @@ body{
 	line-height: 50px;
 }
 #last_projects{
+	padding-top: 80px;
 	padding-bottom: 83px;
 }
-#last_projects .introduction{
-	padding-top: 80px;
-}
-#last_projects .introduction h1{
+#last_projects h1{
 	font-family: 'Raleway', sans-serif;
 	font-size: 30px;
 	line-height: 30px;
 	text-align: center;
 	color: #555555;
 }
-#last_projects .introduction p{
+#last_projects p{
 	margin-top: 20px;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 300;
@@ -405,6 +495,9 @@ body{
 	width: 370px;
 	height: 237px;
 }
+#last_projects .project a{
+	text-decoration: none;
+}
 #last_projects .information{
 	position: relative;
 	width: 368px;
@@ -415,10 +508,16 @@ body{
 		background-color 0.7s ease-in-out 0.1s,
 		border-color 0.7s ease-in-out 0.1s;
 }
-#last_projects .triangle{
+#last_projects .information::before{
+	content: "";
 	position: absolute;
-	top: -10px;
+	width: 0;
+	height: 0;
+	top: -30px;
 	left: 20px;
+	border: 15px solid transparent;
+	border-bottom: 15px solid #fbfaf8;
+	transition: border-bottom 0.7s ease-in-out 0.1s;
 }
 #last_projects .information h2{
 	margin: 30px 0 0 30px;
@@ -451,12 +550,12 @@ body{
 #last_projects .project:hover::before{
 	opacity: 0.7;
 }
+#last_projects .project:hover .information::before{
+	border-bottom-color: #362f2d;
+}
 #last_projects .project:hover .information{
 	background-color: #362f2d;
 	border-color: #362f2d;
-}
-#last_projects .project:hover .triangle path{
-	fill: #362f2d;
 }
 #last_projects .project:hover .information h2{
 	color: white;
@@ -478,6 +577,7 @@ body{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 	background: url(../src/bg_video_presentation.png) no-repeat 0 0;
 	height: 705px;
 }
@@ -515,14 +615,18 @@ body{
 }
 #mobile_devices{
 	display: flex;
-	justify-content: flex-end;
-	align-items: center;
+	justify-content: center;
+	align-items: flex-end;
 	height: 695px;
 	width: 100%;
-	background: url(../src/bg_mobile_devices.png);
 }
 #mobile_devices .container{
-	margin-right: 380px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+#mobile_devices .container div{
+	margin-top: 118px;
 }
 #mobile_devices h2{
 	margin-bottom: 40px;
@@ -550,6 +654,9 @@ body{
 	font-size: 16px;
 	line-height: 32px;
 	color: #8c8c8c;
+}
+#mobile_devices li svg{
+	margin-right: 30px;
 }
 #counter{
 	display: flex;
@@ -603,4 +710,290 @@ body{
 	margin-top: 30px;
 	background-color: white;
 	transition: background-color 1s ease-in-out 0.1s;	
+}
+#recent_posts{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	padding-bottom: 142px;
+	background: white;
+}
+#recent_posts h2{
+	margin-top: 82px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 30px;
+	font-weight: 600;
+	line-height: 23px;
+	color: #555555;
+}
+#recent_posts p{
+	margin-top: 25px;
+	margin-bottom: 35px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 28px;
+	text-align: center;
+	color: #8c8c8c;
+}
+#recent_posts .posts{
+	display: flex;
+	justify-content: flex-start;
+}
+#recent_posts .post{
+	position: relative;
+	margin-right: 30px;
+	list-style: none;
+	font-size: 0;
+}
+#recent_posts .post:nth-child(3){
+	margin-right: 0;
+}
+#recent_posts .post::before{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 370px;
+	height: 220px;
+	z-index: 100;
+	opacity: 0;
+	background: #111111;
+	transition: opacity 1s ease-in-out 0.1s;
+}
+#recent_posts .post:hover::before{
+	opacity: 0.7;
+}
+#recent_posts .post img{
+	width: 370px;
+	height: 220px;
+}
+#recent_posts .post a{
+	text-decoration: none;
+}
+#recent_posts .post_information{
+	width: 368px;
+	height: 173px;
+	border: 1px solid #f8f8f8;
+	border-top-color: transparent;
+	background-color: white;
+	transition: 
+		background-color 1s ease-in-out 0.1s,
+		border-color 1s ease-in-out 0.1s;
+}
+#recent_posts .post:hover .post_information{
+	border-color: #362f2d;
+	background-color: #362f2d;
+}
+#recent_posts .post_information h2{
+	margin-top: 30px;
+	margin-left: 30px;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 17px;
+	transition: color 1s ease-in-out 0.1s;
+}
+#recent_posts .post:hover h2{
+	color: #c7b299;
+}
+#recent_posts .post_information p{
+	margin-top: 15px;
+	margin-bottom: 25px;
+	margin-left: 30px;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 22px;
+	text-align: left;
+	transition: color 1s ease-in-out 0.1s;
+}
+#recent_posts .post:hover p{
+	color: white;
+}
+#recent_posts .post_information span{
+	margin-right: 5px;
+	margin-left: 30px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 14px;
+	color: #c7b299;
+}
+#contents{
+	background: url("../src/bg_contents.png") no-repeat 0 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 489px;
+}
+#contents .logos{
+	display: flex;
+	justify-content: flex-start;
+	width: 1110px;
+}
+#contents .logo{
+	margin-right: 90px;
+	list-style: none;
+}
+#upper{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	height: 510px;
+	background: #191919;
+}
+#upper .container{
+	margin-top: 80px;
+	display: flex;
+	justify-content: space-between;
+	width: 1170px;
+}
+#upper .about_waxon,
+#upper .recent_posts,
+#upper .twitter,
+#upper .widget{
+	width: 270px;
+}
+#upper .date{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 12px;
+	font-weight: 300;
+	color: #363636;
+}
+#upper h3{
+	font-family: 'Raleway', sans-serif;
+	font-size: 24px;
+	font-weight: 600;
+	color: white;
+}
+#upper .hashtag{
+	color: #00bff3;
+}
+#upper .link{
+	color: #959595;
+	text-decoration: none;
+}
+#upper p{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 24px;
+}
+#upper .logo {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+#upper .logo h1{
+	font-family: 'Raleway', sans-serif;
+	font-size: 34px;
+	font-weight: 100;
+	color: white;
+}
+#upper .about_waxon p{
+	margin-top: 25px;
+	margin-bottom: 25px;
+	color: #555555;
+}
+#upper .about_waxon a{
+	margin-right: 10px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	color: white;
+	text-decoration: none;
+}
+#upper .recent_posts ul{
+	display: flex;
+	flex-direction: column;
+	margin-top: 30px;
+}
+#upper .update{
+	list-style: none;
+}
+#upper .update p{
+	margin-top: 10px;
+	color: #555555;
+}
+#upper .update:not(:last-child){
+	padding-bottom: 15px;
+	border-bottom: 1px solid #252525;
+}
+#upper .update:not(:first-child){
+	padding-top: 15px;
+}
+#upper .twitter ul{
+	display: flex;
+	flex-direction: column;
+	margin-top: 30px;
+}
+#upper .news{
+	list-style: none;
+}
+#upper .news p{
+	margin-bottom: 10px;
+	color: #555555;
+}
+#upper .news:not(:last-child){
+	padding-bottom: 15px;
+	border-bottom: 1px solid #252525;
+}
+#upper .news:not(:first-child){
+	padding-top: 15px;
+}
+#upper .widget ul{
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	margin-top: 25px;
+	font-size: 0;
+}
+#upper .widget li:nth-child(2n-1){
+	margin-right: 10px;
+}
+#upper .widget li:nth-child(n+3){
+	margin-top: 10px;
+}
+#under{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 110px;
+	background: #111111;
+}
+#under .container{
+	display: flex;
+	justify-content: space-between;
+	width: 1170px;
+	height: 12px;
+}
+#under li,
+#under p{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 13px;
+	color: #555555;
+}
+#under ul{
+	display: flex;
+	justify-content: flex-start;
+}
+#under li{
+	list-style: none;
+}
+#under span{
+	color: #959595;
+}
+#under a{
+	text-decoration: none;
+	color: #555555;
+}
+#under .selected{
+	color: #bba790;
+}
+#under li:not(:last-child){
+	padding-right: 12px;
+	border-right: 1px solid #252525;
+}
+#under li:not(:first-child){
+	padding-left: 12px;
 }
