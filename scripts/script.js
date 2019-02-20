@@ -1,19 +1,18 @@
 var CountSlid = 0;
 bindSlider();
-
 $(window).scroll(function(){
 	var c = document.querySelector("nav");
 	if(window.scrollY==0){
 		$("nav").removeClass("scrolled");
-		$(".up_arrow .container").removeClass("scrolled");
+		$(".up_arrow").removeClass("scrolled");
 		
 	}else{
 		$("nav").addClass("scrolled");
-		$(".up_arrow .container").addClass("scrolled");
+		$(".up_arrow").addClass("scrolled");
   }
 });
 
-$(".up_arrow > .container").click(function(){
+$(".up_arrow").click(function(){
 	var i = 1;
 	var l = setInterval(function(){
 		if(window.scrollY < i){
