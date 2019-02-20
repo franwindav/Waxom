@@ -1,5 +1,8 @@
 var CountSlid = 0;
-bindSlider();
+$(function(){
+	bindSlider();
+});
+
 $(window).scroll(function(){
 	var c = document.querySelector("nav");
 	if(window.scrollY==0){
@@ -28,10 +31,10 @@ $(".up_arrow").click(function(){
 
 function bindSlider(){
 	for(var k = -2; k < 0; k++){
-		bindElement($("#home .arrow")[k+2], k);
+		bindElement($("#sliders .arrow")[k+2], k);
 	}
-	for (var k = 0; k < $("#home .dot").length; k++) {
-		bindElement($("#home .dot")[k], k);
+	for (var k = 0; k < $("#sliders .dot").length; k++) {
+		bindElement($("#sliders .dot")[k], k);
 	}
 	function bindElement(element, k){
 		element.addEventListener("click" ,function(){
@@ -69,15 +72,15 @@ function bindSlider(){
 			nextCountSlider = 0;
 		}
 	
-		var $nextSlide = $("#home .slider:nth-of-type(" + (nextCountSlider + 1) +")");
-		var $nowSlide = $("#home .slider.active");
+		var $nextSlide = $("#sliders .slider:nth-of-type(" + (nextCountSlider + 1) +")");
+		var $nowSlide = $("#sliders .slider.active");
 	
 		$nowSlide.css("display", "none");
 		$nextSlide.fadeToggle(1000);
 		$nextSlide.addClass("active");
 		$nowSlide.removeClass("active");
-		$("#home .dot.active").removeClass("active");
-		$("#home .dot:nth-of-type(" + (nextCountSlider + 1) +")").addClass("active");
+		$("#sliders .dot.active").removeClass("active");
+		$("#sliders .dot:nth-of-type(" + (nextCountSlider + 1) +")").addClass("active");
 		CountSlid = nextCountSlider;
 	}
 };
