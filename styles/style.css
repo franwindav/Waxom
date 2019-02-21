@@ -141,14 +141,13 @@ body{
 }
 /* Стрелки */
 #sliders .left_arrow{
-	position: absolute;
 	left: 8%;
-	top: 50%;
-	z-index: 200;
 }
 #sliders .right_arrow{
-	position: absolute;
 	right: 8%;
+}
+#sliders .arrow{
+	position: absolute;
 	top: 50%;
 	z-index: 200;
 }
@@ -170,7 +169,6 @@ body{
 	height: 100%;
 	color: #ffffff;
 	z-index: 100;
-	z-index: 100;
 }
 #sliders .slider img{
 	position: absolute;
@@ -178,8 +176,7 @@ body{
 	left: 0;
 	width: 100%;
 	height: 100%;
-	z-index: 0;
-	z-index: 100;
+	z-index: 50;
 }
 #sliders .slider h2{
 	font-size: 36px;
@@ -201,12 +198,6 @@ body{
 	font-size: 16px;
 	margin-top: 17px;
 	margin-bottom: 52px;
-	z-index: 100;
-}
-#sliders .slider .container{
-	display: flex;	
-	justify-content: center !important;
-	width: 100%;
 	z-index: 100;
 }
 #sliders .slider_button{
@@ -242,6 +233,7 @@ body{
 	transition: 
 		background-color 1s ease-in-out,
 		border-color 1s ease-in-out;
+		z-index: 100;
 }
 #sliders .dot:not(:last-of-type){
 	margin-right: 10px;

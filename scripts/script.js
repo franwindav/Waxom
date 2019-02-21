@@ -1,4 +1,4 @@
-var CountSlid = 0;
+var CountSlider = 0;
 $(function(){
 	bindSlider();
 });
@@ -44,11 +44,11 @@ function bindSlider(){
 	function changeSliders(i){
 		switch(i){
 			case -2: {
-				animationSlid(CountSlid-1);
+				animationSlid(CountSlider-1);
 				break;
 			}
 			case -1: {
-				animationSlid(CountSlid+1);
+				animationSlid(CountSlider+1);
 				break;
 			}
 			case 0: {
@@ -65,22 +65,38 @@ function bindSlider(){
 			}
 		}
 	};
-	function animationSlid(nextCountSlider){
-		if(nextCountSlider < 0){
-			nextCountSlider = 2;
-		}else if(nextCountSlider > 2){
-			nextCountSlider = 0;
-		}
 	
-		var $nextSlide = $("#sliders .slider:nth-of-type(" + (nextCountSlider + 1) +")");
-		var $nowSlide = $("#sliders .slider.active");
-	
-		$nowSlide.css("display", "none");
-		$nextSlide.fadeToggle(1000);
-		$nextSlide.addClass("active");
-		$nowSlide.removeClass("active");
-		$("#sliders .dot.active").removeClass("active");
-		$("#sliders .dot:nth-of-type(" + (nextCountSlider + 1) +")").addClass("active");
-		CountSlid = nextCountSlider;
-	}
 };
+function animationSlid(nextCountSlider){
+	if(nextCountSlider < 0){
+		nextCountSlider = 2;
+	}else if(nextCountSlider > 2){
+		nextCountSlider = 0;
+	}
+
+	var $nextSlide = $("#sliders .slider:nth-of-type(" + (nextCountSlider + 1) +")");
+	var $nowSlide = $("#sliders .slider:nth-of-type(" + (CountSlider + 1) +")");
+	
+	if(nextCountSlider < CountSlider){
+		$nextSlide.animate({left: (-window.screen.width) + ''},0);
+		$nextSlide.css("display", "");
+		$nextSlide.animate({left: '0'},1500);
+		$nowSlide.animate({left: window.screen.width + ''},1500,function(){$nowSlide.css("display", "none");$nowSlide.animate({left: '0'},0);});
+
+	}else{
+		$nextSlide.animate({left: window.screen.width + ''},0);
+		$nextSlide.css("display", "");
+		$nextSlide.animate({left: '0'},1500);
+		$nowSlide.animate({left: (-window.screen.width) + ''},1500,function(){$nowSlide.css("display", "none");$nowSlide.animate({left: '0'},0);});
+	}
+
+	CountSlider = nextCountSlider;
+
+
+	// $nextSlide.fadeToggle(1000);
+	// $nextSlide.addClass("active");
+	// $nowSlide.removeClass("active");
+	// $("#sliders .dot.active").removeClass("active");
+	// $("#sliders .dot:nth-of-type(" + (nextCountSlider + 1) +")").addClass("active");
+	// CountSlid = nextCountSlider;
+}
