@@ -136,7 +136,8 @@ body{
 	align-items: center;
   	height: 1024px;
 	width: 100%;
-	background-color: #111111;
+	background-color: #191919;
+	overflow: hidden;
 	z-index: 0;
 }
 /* Стрелки */
@@ -269,7 +270,7 @@ body{
 	margin-bottom: 30px;
 }
 #occupation path{
-	transition: fill 1s ease-in-out 0.1s;
+	transition: fill 0.6s ease-in-out;
 }
 #occupation h1{
 	font-family: 'Raleway', sans-serif;
@@ -277,7 +278,7 @@ body{
 	text-align: center;
 	margin-bottom: 10px;
 	color: #555555;
-	transition: color 1s ease-in-out 0.1s;
+	transition: color 0.6s ease-in-out;
 }
 #occupation p{
 	font-family: 'Montserrat', sans-serif;
@@ -295,7 +296,7 @@ body{
 	margin: auto;
 	margin-top: 23px;
 	background-color: #f1eee9;
-	transition: background-color 1s ease-in-out 0.1s;	
+	transition: background-color 0.6s ease-in-out 0.1s;	
 }
 #occupation li:hover path{
 	fill: #c7b299; 
@@ -478,7 +479,7 @@ body{
 	transition: opacity 0.7s ease-in-out 0.1s;
 }
 #last_projects path{
-	transition: fill 0.7s ease-in-out 0.1s;
+	transition: fill 0.4s ease-in-out 0.1s;
 }
 #last_projects .project::before{
 	content: "";
