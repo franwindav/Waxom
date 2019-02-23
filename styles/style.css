@@ -8,7 +8,6 @@ input{
 	background: none;
 	border: none;
 }
-/* Панель навигации главного меню */
 .main{
 	display: flex;
 	position: fixed;
@@ -22,7 +21,6 @@ input{
 .main.scrolled{
 	background-color: white;
 }
-/* Контейнер, для центровки */
 .main.scrolled .container{
 	height: 77px;
 }
@@ -32,12 +30,10 @@ input{
 	justify-content: space-between;
 	align-items: center;
 	width: 1170px;
-	min-width: 1000px;
 	height: 137px;
 	font-size: 0;
 	transition: height 0.5s ease-in-out;
 }
-/* Лого(надпись) */
 .waxom_logo path{
 	transition: fill 0.4s ease-in-out 0.1s;
 }
@@ -54,18 +50,30 @@ input{
 	color: #e7e7e6;
 	transition: color 0.4s ease-in-out 0.1s;
 }
-/* Главное меню */
 .main_menu{
 	display: inline-block;
 	font-size: 0;
 }
-/* Элементы меню */
+.open_mobile_menu{
+	display: none;
+}
+.open_mobile_menu path,
+.open_mobile_menu circle{
+	transition: fill 0.4s ease-in-out 0.1s;
+}
+.main.scrolled .open_mobile_menu path,
+.main.scrolled .open_mobile_menu circle{
+	fill: #a3a2a0;
+}
+.main.scrolled .open_mobile_menu:hover path,
+.main.scrolled .open_mobile_menu:hover circle{
+	fill: #c7b299;
+}
 .main_menu li{
 	display: inline-block;
 	margin-left: 30px;
 	list-style: none;
 }
-/* Отступы элементов */
 .main_menu li:nth-child(1){
 	margin-left: 0;
 }
@@ -126,15 +134,12 @@ input{
 	fill: #d3c1ad;
 	opacity: 1;
 }
-body{
-	min-width: 1180px;
-}
 /* Section(home) */
 #sliders{
 	position: relative;
 	justify-content: space-between;
 	align-items: center;
-  	height: 1024px;
+  height: 1024px;
 	width: 100%;
 	background-color: #191919;
 	overflow: hidden;
@@ -176,21 +181,40 @@ body{
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	height: auto;
 	z-index: 50;
+}
+#sliders .slider video{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	top: auto;
+	z-index: 50;
+}
+#sliders .slider:nth-of-type(2)::before{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(48, 41, 40, 0.5);
+	z-index: 90;
 }
 #sliders .slider h2{
 	position: absolute;
-	top: 40%;
+	bottom: 598px;
 	font-size: 36px;
 	font-family: 'Raleway', sans-serif;
 	text-align: center;
-	margin-bottom: 4px;
 	z-index: 100;
 }
 #sliders .slider h1{
 	position: absolute;
-	top: 45%;
+	bottom: 533px;
 	font-family: 'Raleway', sans-serif;
 	font-size: 52px;
 	font-weight: bold;
@@ -198,18 +222,20 @@ body{
 	z-index: 100;
 }
 #sliders .slider p{
-	position: absolute;
-	top: 50%;
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
-	margin-top: 17px;
-	margin-bottom: 52px;
+	line-height: 24px;
+}
+#sliders .slider .text{
+	position: absolute;
+	bottom: 482px;
+	height: 48px;
 	z-index: 100;
 }
 #sliders .slider_button{
 	position: absolute;
-	top: 60%;
+	bottom: 390px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -257,20 +283,26 @@ body{
 	align-items: center;
 	background-color: white;
 	width: 100%;
-	height: 373px;
+	padding-top: 80px;
+	padding-bottom: 80px;
 }
 #occupation ul{
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
+	flex-wrap: wrap;
 	width: 1180px;
 }
 #occupation li{
-	font-family: Icons;
-	font-size: 49px; 
 	display: block;
-	list-style: none;
 	width: 270px;
 	height: 213px;
+	margin-right: 30px;
+	font-family: Icons;
+	font-size: 49px; 
+	list-style: none;
+}
+#occupation li:last-child{
+	margin-right: 0;
 }
 #occupation .container{
 	display: flex;
@@ -352,7 +384,7 @@ body{
 	left: 0;
 }
 #realization_ideas .middle{
-	top: 0;
+	bottom: 0;
 	left: 230px;
 	z-index: 100;
 }
@@ -586,12 +618,20 @@ body{
 	color: #ffffff;
 }
 #video_presentation{
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	background: url(../src/bg_video_presentation.png) no-repeat 0 0;
 	height: 705px;
+}
+#video_presentation img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -10;
 }
 #video_presentation .start_video{
 	display: flex;
@@ -689,6 +729,9 @@ body{
 	height: 170px;
 	margin-right: 70px;
 }
+#counter li:last-child{
+	margin-right: 0;
+}
 #counter .icon{
 	width: 54px;
 	height: 44px;
@@ -752,6 +795,7 @@ body{
 #recent_posts .posts{
 	display: flex;
 	justify-content: flex-start;
+	flex-wrap: wrap;
 }
 #recent_posts .post{
 	position: relative;
@@ -851,14 +895,21 @@ body{
 	display: flex;
 	justify-content: center;
 	align-content: center;
-	height: 510px;
+	padding-bottom: 50px;
 	background: #191919;
 }
 #upper .container{
 	margin-top: 80px;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
+	flex-wrap: wrap;
 	width: 1170px;
+}
+#upper .container > div{
+ margin-right: 30px;
+}
+#upper .container > div:nth-last-child(1){
+	margin-right: 0;
 }
 #upper .about_waxon,
 #upper .recent_posts,
@@ -1008,4 +1059,97 @@ body{
 }
 #under li:not(:first-child){
 	padding-left: 12px;
+}
+@media screen and (max-width: 1230px){
+	.main .container{
+		width: 1050px;
+	}
+	#realization_ideas .pictures{
+		position: relative;
+		width: 100%;
+		height: 482px;
+	}
+	#realization_ideas .left{
+		bottom: 0;
+		left: 0;
+		width: 50%;
+	}
+	#realization_ideas .middle{
+		bottom: 0;
+		left: 230px;
+		width: 50%;
+		z-index: 100;
+	}
+	#realization_ideas .right{
+		bottom: 0;
+		right: 0;
+		width: 50%;
+	}
+}
+@media screen and (max-width: 1170px){
+	#last_projects .projects{
+		width: 770px;
+	}
+	#last_projects .project:nth-child(3n){
+		margin-right: 30px;
+	}
+	#last_projects .project:nth-child(2n){
+		margin-right: 0;
+	}
+	#recent_posts .posts{
+		width: 770px;
+	}
+	#recent_posts .post{
+		margin-bottom: 30px;
+	}
+	#recent_posts .post:nth-last-child(1),
+	#recent_posts .post:nth-last-child(2){
+		margin-bottom: 0;
+	}
+	#recent_posts .post:nth-child(3n){
+		margin-right: 30px;
+	}
+	#recent_posts .post:nth-child(2n){
+		margin-right: 0;
+	}
+	#under .container{
+		width: 670px;
+	}
+	#upper .container{
+		width: 570px;
+	}
+	#upper .container > div:nth-child(2){
+		margin-right: 0;
+		margin-bottom: 30px;
+	}
+	#upper .container > div:nth-child(1){
+		margin-bottom: 30px;
+	}
+	#occupation ul{
+		width: 570px;
+	}
+	#occupation li:nth-child(2){
+		margin-right: 0;
+		margin-bottom: 50px;
+	}
+	#occupation li:nth-child(1){
+		margin-bottom: 50px;
+	}
+}
+@media screen and (max-width: 1110px){
+	#contents .logos{
+		width: 810px;
+		overflow: hidden;
+	}
+}
+@media screen and (max-width: 1080px){
+	.main_menu{
+		display: none;
+	}
+	.open_mobile_menu{
+		display: block;
+	}
+	.main .container{
+		width: 800px;
+	}
 }

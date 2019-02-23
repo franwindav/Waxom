@@ -1,7 +1,12 @@
 var CountSlider = 0;
 var Blocked = false;
+
 $(function(){
 	bindSlider();
+	resizeSliders();
+	$(window).resize(function(){
+		resizeSliders();
+	});
 	$("img").mousedown(function(){
 		return false;
 	});
@@ -31,7 +36,6 @@ $(".up_arrow").click(function(){
 		}
 	},15);
 });
-
 
 function bindSlider(){
 	for(var k = -2; k < 0; k++){
@@ -121,11 +125,49 @@ function bindSlider(){
 		var width = (Number.parseInt($("#sliders").css("width")) + 10) * k;
 		$nextSlide.animate({left: -width},0);
 		$nextSlide.css("display", "");
-		$nextSlide.animate({left: 0},2000);
-		$nowSlide.animate({left: width},2000,function(){$nowSlide.css("display", "none");$nowSlide.animate({left: 0},0);Blocked = false;});
+		$nextSlide.find(".shift").slideUp(0);
+		$nextSlide.find(".slider_button").slideUp(0);
+		$nowSlide.find(".shift").slideUp(600);
+		$nowSlide.find(".slider_button").slideUp(600,function(){
+			$nextSlide.animate({left: 0},{duration: 2000});
+			$nowSlide.animate({left: width},
+				{
+					duration: 2000,
+					complete: function(){
+						$nowSlide.find(".shift").slideDown(0);
+						$nowSlide.find(".slider_button").slideDown(0);
+						$nextSlide.find(".shift").slideDown(600);
+						$nextSlide.find(".slider_button").slideDown(
+							{
+								duration: 600,
+								complete: function(){
+									$nowSlide.css("display", "none");
+									$nowSlide.animate({left: 0},0);
+									Blocked = false;
+									if($nowSlide.children().is("video")){ 
+										$nowSlide.find("video").get(0).pause();
+										$nowSlide.find("video").get(0).currentTime = 0;
+									}
+									if($nextSlide.children().is("video")) $nextSlide.find("video").get(0).play();
+								}
+						});
+					}
+			});		
+		});
 	}
 	function animationDots(nextCountSlider){
 		$("#sliders .dot.active").removeClass("active");
 		$("#sliders .dot:nth-of-type(" + (nextCountSlider + 1) +")").addClass("active");
 	}
 };
+function resizeSliders(){
+	var mas = [86, 21, -30, -122];
+	var newHeigth = $("#sliders .slider:nth-of-type(" + (CountSlider + 1) + ")").children().is("img") ? Number.parseFloat($("#sliders .slider:nth-of-type(" + (CountSlider + 1) + ") img").css("height")) : Number.parseFloat($("#sliders .slider:nth-of-type(" + (CountSlider + 1) + ") video").css("height"));
+	var text = $("#sliders .slider .resize");
+
+	for(var i = 0; i < text.length; i++){
+		text.eq(i).css("bottom", Math.abs(newHeigth)/2 + mas[i])
+	}
+
+	$("#sliders").css("height", newHeigth);
+}
