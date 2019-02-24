@@ -1,7 +1,7 @@
 var CountSlider = 0;
 var Blocked = false;
 
-$(function(){
+$("#sliders").ready(function(){
 	bindSlider();
 	resizeSliders();
 	$(window).resize(function(){
@@ -165,8 +165,11 @@ function resizeSliders(){
 	var newHeigth = $("#sliders .slider:nth-of-type(" + (CountSlider + 1) + ")").children().is("img") ? Number.parseFloat($("#sliders .slider:nth-of-type(" + (CountSlider + 1) + ") img").css("height")) : Number.parseFloat($("#sliders .slider:nth-of-type(" + (CountSlider + 1) + ") video").css("height"));
 	var text = $("#sliders .slider .resize");
 
-	for(var i = 0; i < text.length; i++){
-		text.eq(i).css("bottom", Math.abs(newHeigth)/2 + mas[i])
+	for(var i = 0; i < $("#sliders .slider").length; i++){
+		var $text = $("#sliders .slider").eq(i).find(".resize");
+		for(var c = 0; c < 4; c++){
+			$text.eq(c).css("bottom", Math.abs(newHeigth)/2 + mas[c]);
+		}
 	}
 
 	$("#sliders").css("height", newHeigth);
