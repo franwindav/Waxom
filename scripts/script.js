@@ -102,6 +102,10 @@ function bindSlider(){
 	}
 	function animationSlid(nextCountSlider){
 		nextCountSlider = sliderCheck(nextCountSlider);
+		if(nextCountSlider == CountSlider){
+			Blocked = false;
+			return;
+		}
 	
 		var $nextSlide = $("#sliders .slider:nth-of-type(" + (nextCountSlider + 1) +")");
 		var $nowSlide = $("#sliders .slider:nth-of-type(" + (CountSlider + 1) +")");
