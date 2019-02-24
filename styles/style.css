@@ -194,7 +194,7 @@ input{
 	top: auto;
 	z-index: 50;
 }
-#sliders .slider:nth-of-type(2)::before{
+/* #sliders .slider:nth-of-type(2)::before{
 	content: "";
 	position: absolute;
 	top: 0;
@@ -203,7 +203,7 @@ input{
 	height: 100%;
 	background-color: rgba(48, 41, 40, 0.5);
 	z-index: 90;
-}
+} */
 #sliders .slider h2{
 	position: absolute;
 	bottom: 598px;
