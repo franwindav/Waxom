@@ -194,16 +194,16 @@ input{
 	top: auto;
 	z-index: 50;
 }
-#sliders .slider:nth-of-type(2)::before{
-	content: "";
+#sliders .slider .darkness{
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgb(48, 41, 40);
-	opacity: 0.5;
+	background-color: #302928;
+	opacity: 0.1;
 	z-index: 90;
+	transition: opacity 4s ease-in-out;
 }
 #sliders .slider h2{
 	position: absolute;

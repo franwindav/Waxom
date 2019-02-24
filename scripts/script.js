@@ -147,8 +147,12 @@ function bindSlider(){
 									if($nowSlide.children().is("video")){ 
 										$nowSlide.find("video").get(0).pause();
 										$nowSlide.find("video").get(0).currentTime = 0;
+										$nowSlide.find(".darkness").css({"opacity": 0.1})
 									}
-									if($nextSlide.children().is("video")) $nextSlide.find("video").get(0).play();
+									if($nextSlide.children().is("video")){ 
+										$nextSlide.find("video").get(0).play();
+										$nextSlide.find(".darkness").css({"opacity": 0.3})
+									}
 								}
 						});
 					}
