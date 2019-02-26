@@ -28,9 +28,13 @@ $("#sliders").ready(function(){
 $("#video_presentation").ready(function(){
 	$("#video_presentation").css("height", $("#video_presentation img").css("height"));
 });
+$("#contents").ready(function(){
+	$("#contents").css("height", $("#contents .bg").css("height"));
+});
 $(function(){
 	$(window).resize(function(){
 		$("#video_presentation").css("height", $("#video_presentation img").css("height"));
+		$("#contents").css("height", $("#contents .bg").css("height"));
 	});
 });
 $(window).scroll(function(){
