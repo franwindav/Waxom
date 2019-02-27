@@ -2,7 +2,7 @@ var CountSlider = 0;
 var Blocked = false;
 
 $("#sliders").ready(function(){
-	if(window.screen.width <= 370) $("#width").attr("content", "width=370, user-scalable=no");
+	if(window.innerWidth <= 370) $("#width").attr("content", "width=370, user-scalable=no");
 	else $("#width").attr("content", "width=device-width, user-scalable=no");
 	bindSlider();
 	resizeSliders();
@@ -13,7 +13,7 @@ $("#sliders").ready(function(){
 		return false;
 	});
 	function resizeSliders(){
-		if(window.screen.width <= 400) $("#width").attr("content", "width=370, user-scalable=no");
+		if(window.innerWidth <= 400) $("#width").attr("content", "width=370, user-scalable=no");
 		else $("#width").attr("content", "width=device-width, user-scalable=no");
 		var mas = [86, 21, -30, -122];
 		if(screen.width < 550) mas[0]=60;
