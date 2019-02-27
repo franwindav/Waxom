@@ -1333,4 +1333,8 @@ input{
 	#last_projects h1 {
 		width: 300px;
 	}
+	#recent_posts p,
+	#recent_posts h2{
+		width: 300px;
+	}
 }
