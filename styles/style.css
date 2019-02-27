@@ -1158,7 +1158,7 @@ input{
 		display: block;
 	}
 	.main .container{
-		width: 800px;
+		width: 80%;
 	}
 }
 @media screen and (max-width: 950px){
@@ -1221,7 +1221,6 @@ input{
 }
 @media screen and (max-width: 810px){
 	.main .container {
-		width: 600px;
 		height: 90px;
 	}
 	.main .container > div:first-child{
@@ -1314,8 +1313,6 @@ input{
 	#word_press .container {
 		width: 350px;
 	}
-}
-@media screen and (max-width: 500px){
 	#sliders .slider h1{
 		font-size: 30px;
 	}

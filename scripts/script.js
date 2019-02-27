@@ -12,7 +12,7 @@ $("#sliders").ready(function(){
 	});
 	function resizeSliders(){
 		var mas = [86, 21, -30, -122];
-		if(screen.width < 500) mas[0]=70;
+		if(screen.width < 550) mas[0]=70;
 		var newHeigth = $("#sliders .slider:nth-of-type(" + (CountSlider + 1) + ")").children().is("img") ? Number.parseFloat($("#sliders .slider:nth-of-type(" + (CountSlider + 1) + ") img").css("height")) : Number.parseFloat($("#sliders .slider:nth-of-type(" + (CountSlider + 1) + ") video").css("height"));
 		var text = $("#sliders .slider .resize");
 	
