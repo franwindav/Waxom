@@ -2,7 +2,7 @@ var CountSlider = 0;
 var Blocked = false;
 
 $("#sliders").ready(function(){
-	if(window.innerWidth <= 370) $("#width").attr("content", "width=370, initial-scale=1, maximum-scale=1, minimum-scale=1");
+	if(window.innerWidth <= 370) $("#width").attr("content", "width=400, initial-scale=1, maximum-scale=1, minimum-scale=1");
 	else $("#width").attr("content", "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1");
 	bindSlider();
 	resizeSliders();
@@ -13,7 +13,7 @@ $("#sliders").ready(function(){
 		return false;
 	});
 	function resizeSliders(){
-		if(window.innerWidth <= 400) $("#width").attr("content", "width=370, initial-scale=1, maximum-scale=1, minimum-scale=1");
+		if(window.innerWidth <= 400) $("#width").attr("content", "width=400, initial-scale=1, maximum-scale=1, minimum-scale=1");
 		else $("#width").attr("content", "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1");
 		var mas = [86, 21, -30, -122];
 		if(screen.width < 550) mas[0]=60;
