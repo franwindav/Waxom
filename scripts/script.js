@@ -15,8 +15,8 @@ $(".up_arrow").ready(function(){
 	});
 });
 $("#sliders").ready(function(){
-	if(window.innerWidth <= 370) $("#width").attr("content", "width=400, initial-scale=1, maximum-scale=1, minimum-scale=1");
-	else $("#width").attr("content", "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1");
+	if(window.innerWidth <= 370) $("#width").attr("content", "width=370, user-scalable=no");
+	else $("#width").attr("content", "width=device-width, user-scalable=no");
 	bindSlider();
 	resizeSliders();
 	$(window).resize(function(){
@@ -26,8 +26,8 @@ $("#sliders").ready(function(){
 		return false;
 	});
 	function resizeSliders(){
-		if(window.innerWidth <= 370) $("#width").attr("content", "width=400, initial-scale=1, maximum-scale=1, minimum-scale=1");
-		else $("#width").attr("content", "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1");
+		if(window.innerWidth <= 370) $("#width").attr("content", "width=370, user-scalable=no");
+		else $("#width").attr("content", "width=device-width, user-scalable=no");
 		var mas = [86, 21, -30, -122];
 		if(screen.width < 550) mas[0]=60;
 		var newHeigth = $("#sliders .slider:nth-of-type(" + (CountSlider + 1) + ")").children().is("img") ? Number.parseFloat($("#sliders .slider:nth-of-type(" + (CountSlider + 1) + ") img").css("height")) : Number.parseFloat($("#sliders .slider:nth-of-type(" + (CountSlider + 1) + ") video").css("height"));
