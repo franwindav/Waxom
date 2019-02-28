@@ -1235,23 +1235,23 @@ input{
 	#sliders{
 		width: auto;
 	}
-	#last_projects p{
+	#last_projects > p{
 		width: 412px;
 	}
 	#last_projects .projects{
 		width: 370px;
 	}
 	#last_projects .project {
-		margin-right: 0;
+		margin-right: 0 !important;
 	}
-	#recent_posts p{
+	#recent_posts > p{
 		width: 412px;
 	}
 	#recent_posts .posts{
 		width: 370px;
 	}
 	#recent_posts .post{
-		margin-right: 0;
+		margin-right: 0 !important;
 	}
 	#mobile_devices .container div{
 		width: 80%;
@@ -1314,24 +1314,27 @@ input{
 		width: 350px;
 	}
 	#sliders .slider h1{
-		font-size: 30px;
+		font-size: 27px;
+	}
+	#sliders .slider h2{
+    font-size: 20px;
+	}
+	#sliders .slider p{
+    font-size: 10px;
 	}
 	#mobile_devices .container img{
 		width: 80%;
 	}
-	#sliders .slider h2 {
-    font-size: 25px;
-	}
-	#realization_ideas p,
-	#realization_ideas h1 {
+	#realization_ideas > p,
+	#realization_ideas > h1 {
 		width: 300px;
 	}
-	#last_projects p,
-	#last_projects h1 {
+	#last_projects > p,
+	#last_projects > h1 {
 		width: 300px;
 	}
-	#recent_posts p,
-	#recent_posts h2{
+	#recent_posts > p,
+	#recent_posts > h2{
 		width: 300px;
 	}
 }
