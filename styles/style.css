@@ -570,6 +570,7 @@ input{
 }
 #last_projects .information p{
 	margin: 15px 0 0 30px;
+	text-align: start;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 300;
 	font-size: 14px;

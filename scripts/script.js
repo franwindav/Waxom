@@ -71,16 +71,19 @@ function bindSlider(){
 	for(var k = -2; k < 0; k++){
 		bindElement($("#sliders .arrow:nth-of-type(" + (k+3) +")"), k);
 	}
-	for (var k = 0; k < $("#sliders .dot").length; k++) {
+	for (var k = 0; k < 3; k++) {
 		bindElement($("#sliders .dot:nth-of-type(" + (k+1) +")"), k);
 	}
+	$("#sliders .slider .slider_button").each(function(){
+		bindElement($(this), -1);
+	});
 	function bindElement(element, k){
 		element.bind("click" ,function(){
 			if(!Blocked){
 				Blocked = true; 
 				changeSliders(k);
 			}
-	});
+		});
 	};
 	function changeSliders(i){
 		switch(i){
