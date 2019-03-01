@@ -172,6 +172,7 @@ input{
 	opacity: 1;
 }
 #sliders .slider{
+	overflow: hidden;
 	position: absolute;
 	display: flex;
 	flex-direction: column;

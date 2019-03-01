@@ -68,12 +68,12 @@ $(window).scroll(function(){
 });
 
 function bindSlider(){
-	for(var k = -2; k < 0; k++){
-		bindElement($("#sliders .arrow:nth-of-type(" + (k+3) +")"), k);
-	}
-	for (var k = 0; k < 3; k++) {
-		bindElement($("#sliders .dot:nth-of-type(" + (k+1) +")"), k);
-	}
+	$("#sliders .arrow").each(function(k){
+		bindElement($(this), k-2);
+	});
+	$("#sliders .dot").each(function(k){
+		bindElement($(this), k);
+	});
 	$("#sliders .slider .slider_button").each(function(){
 		bindElement($(this), -1);
 	});
