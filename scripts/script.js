@@ -259,3 +259,7 @@ $("#counter").ready(function(){
 	});
 
 });
+$(function(){
+	window.scrollTo(1,0);
+	window.scrollTo(0,0);
+});
