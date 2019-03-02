@@ -30,11 +30,9 @@ $("#sliders").ready(function(){
 		var xDiff = xDown - xUp;
 		if (xDiff > 0 && !Blocked) {
 			Blocked = true; 
-			console.log(12);
 			changeSliders(-2);
 		} else if(!Blocked){
 			Blocked = true;
-			console.log(12);
 			changeSliders(-1);
 		}                       
 		xDown = null;                                         
