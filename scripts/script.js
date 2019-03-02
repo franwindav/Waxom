@@ -249,12 +249,12 @@ $("#counter").ready(function(){
 			var count =  $(this).text();
 			$(this).text("0").animate(
 					{content: count},
-	            	{
+	        {
 						duration: 2500,
 						easing: 'swing',
 						step: function(now){
-								 $(this).text(Math.ceil(now));
-	                    	}
+										$(this).text(Math.ceil(now));
+									}
 					});
 		});
 	}
