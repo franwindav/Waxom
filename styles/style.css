@@ -1,13 +1,16 @@
 *{
   padding: 0;
 	margin: 0;
-	-webkit-appearance: none;
+	appearance: none;
 }
 button,
 input{
 	outline: none;
 	background: none;
 	border: none;
+	-webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
 }
 .main{
 	display: flex;
