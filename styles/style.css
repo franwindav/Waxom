@@ -7,6 +7,7 @@ input{
 	outline: none;
 	background: none;
 	border: none;
+	appearance: none;
 }
 .main{
 	display: flex;
@@ -183,6 +184,7 @@ input{
 	color: #ffffff;
 	z-index: 100;
 }
+#sliders .slider video,
 #sliders .slider img{
 	position: absolute;
 	top: 0;
@@ -191,19 +193,6 @@ input{
 	height: auto;
 	min-height: 432px !important;
 	min-width: 810px !important;
-	z-index: 50;
-}
-#sliders .slider video{
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 100%;
-	height: auto;
-	min-height: 432px !important;
-	min-width: 810px !important;
-	top: auto;
 	z-index: 50;
 }
 #sliders .slider .darkness{
