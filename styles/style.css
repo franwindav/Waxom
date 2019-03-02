@@ -8,6 +8,9 @@ input{
 	outline: none;
 	background: none;
 	border: none;
+	-webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
 }
 .main{
 	display: flex;
@@ -463,9 +466,6 @@ input{
 	font-size: 14px;
 	line-height: 14px;
 	color: #8c8c8c;
-	-webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  appearance: none !important;
 	transition:	
 		border-color 0.7s ease-in-out 0.1s,
 		background-color 0.7s ease-in-out 0.1s,
@@ -606,9 +606,6 @@ input{
 	box-shadow: #736357 0 3px 0;
 	border-radius: 6px;
 	color: #ffffff;
-	-webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  appearance: none !important;
 }
 #video_presentation{
 	position: relative;

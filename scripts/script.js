@@ -1,8 +1,11 @@
 var InWindow = [];
 var CountSlider = 0;
 var Blocked = false;
-var xDown = null;
-var yDown = null; 
+var XDown = null;
+var SliderTime;
+var allowedTime = 200;
+var threshold = 70; 
+
 
 $("#sliders").ready(function(){
 	bindSlider();
@@ -11,36 +14,33 @@ $("#sliders").ready(function(){
 		resizeSliders();
 	});
  	$("#sliders img").mousedown(function(){ return false;});
-	document.addEventListener('touchstart', handleTouchStart, false);
-	document.addEventListener('touchmove', handleTouchMove, false);
-
+	 $("#sliders").get(0).addEventListener('touchstart', function (evt) {
+		XDown = evt.touches[0].clientX;
+		SliderTime = new Date().getTime();
+	}, false);
+	$("#sliders").get(0).addEventListener('touchend', function(evt){
+		if (!XDown) {
+		    return;
+		}
+		var elapsedTime = new Date().getTime() - SliderTime;
+		var xUp = evt.changedTouches[0].pageX;
+		var xDiff = XDown - xUp;
+		f = elapsedTime <= allowedTime && !Blocked;
+		if (xDiff > threshold && f) {
+			Blocked = true; 
+			changeSliders(-2);
+		} else if(f && xDiff < -threshold){
+			Blocked = true;
+			changeSliders(-1);
+		}                       
+		XDown = null;  
+	},false);
 
 
 /*          FUNCS         */
 
 
 
-	function handleTouchStart(evt) {
-			xDown = evt.touches[0].clientX;
-			yDown = evt.touches[0].clientY;
-	};
-	function handleTouchMove(evt) {
-		var top = $("#sliders").offset().top;
-		var bottom = $("#sliders").height() + $("#sliders").offset().top;
-		if (!xDown || yDown < top || yDown > bottom) {
-		    return;
-		}
-		var xUp = evt.touches[0].clientX;
-		var xDiff = xDown - xUp;
-		if (xDiff > 0 && !Blocked) {
-			Blocked = true; 
-			changeSliders(-2);
-		} else if(!Blocked){
-			Blocked = true;
-			changeSliders(-1);
-		}                       
-		xDown = null;                                         
-	};
   function resizeSliders(){
     var mas = [86, 21, -30, -122];
     if(screen.width < 550) mas[0]=60;
