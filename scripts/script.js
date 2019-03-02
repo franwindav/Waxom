@@ -1,4 +1,4 @@
-var InWindow = false;
+var InWindow = [];
 var CountSlider = 0;
 var Blocked = false;
 var xDown = null; 
@@ -230,24 +230,18 @@ $("#width").ready(function(){
 });
 
 $("#counter").ready(function(){
-	$(window).scroll(function(){
-		var positionBottom = $("#counter").offset().top + $("#counter").height();
-		var top = window.scrollY;
-		var bottom = window.innerHeight + window.scrollY;
-		var f = positionBottom > top && positionBottom < bottom;
-		if(!InWindow && f){
-			countAnimation();
-			InWindow = true;
-		}
-		if(InWindow && !f){
-			InWindow = false;
-		}
+	$("#counter .count").each(function(){
+		InWindow.push(false);
 	});
-	function countAnimation (){
-		var $counts = $("#counter .count");
-		$counts.each(function(){
-			var count =  $(this).text();
-			$(this).text("0").animate(
+	$(window).scroll(function(){
+		$("#counter .count").each(function(index){
+			var positionBottom = $(this).offset().top + $(this).height();
+			var top = window.scrollY;
+			var bottom = window.innerHeight + window.scrollY;
+			var f = positionBottom > top && positionBottom < bottom;
+			if(!InWindow[index] && f){
+				var count =  $(this).text();
+				$(this).text("0").animate(
 					{content: count},
 	        {
 						duration: 2500,
@@ -256,6 +250,12 @@ $("#counter").ready(function(){
 										$(this).text(Math.ceil(now));
 									}
 					});
+				InWindow[index] = true;
+			}
+			if(InWindow[index] && !f){
+				InWindow[index] = false;
+			}
 		});
-	}
+	});
+
 });

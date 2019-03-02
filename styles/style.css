@@ -1289,7 +1289,7 @@ input{
 	}
 	#counter li{
 		margin-right: 0;
-		margin-bottom: 60px;
+		margin-bottom: 60px !important;
 	}
 	#contents .logos{
 		width: 210px;
