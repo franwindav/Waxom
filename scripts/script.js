@@ -1,7 +1,8 @@
 var InWindow = [];
 var CountSlider = 0;
 var Blocked = false;
-var xDown = null; 
+var xDown = null;
+var yDown = null; 
 
 $("#sliders").ready(function(){
 	bindSlider();
@@ -20,10 +21,13 @@ $("#sliders").ready(function(){
 
 
 	function handleTouchStart(evt) {
-	    xDown = evt.touches[0].clientX;
+			xDown = evt.touches[0].clientX;
+			yDown = evt.touches[0].clientY;
 	};
 	function handleTouchMove(evt) {
-		if (!xDown) {
+		var top = $("#sliders").offset().top;
+		var bottom = $("#sliders").height() + $("#sliders").offset().top;
+		if (!xDown || yDown < top || yDown > bottom) {
 		    return;
 		}
 		var xUp = evt.touches[0].clientX;
