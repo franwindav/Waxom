@@ -1190,7 +1190,7 @@ input{
 }
 @media screen and (max-width: 1080px){
 	.main{
-		position: relative;
+		/* position: relative; */
 	}
 	.main_menu{
 		display: none;

@@ -245,10 +245,10 @@ $("#counter").ready(function(){
 	});
 	$(window).scroll(function(){
 		$("#counter .count").each(function(index){
-			var positionBottom = $(this).offset().top + $(this).height();
+			var positionTop = $(this).offset().top;
 			var top = window.scrollY;
 			var bottom = window.innerHeight + window.scrollY;
-			var f = positionBottom > top && positionBottom < bottom;
+			var f = positionTop > top && positionTop < bottom;
 			if(!InWindow[index] && f){
 				var count =  $(this).text();
 				$(this).text("0").animate(
