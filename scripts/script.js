@@ -5,7 +5,7 @@ var XDown = null;
 var SliderTime;
 var allowedTime = 200;
 var threshold = 70; 
-
+var IsMobileMenu = false;
 
 $("#sliders").ready(function(){
 	bindSlider();
@@ -209,7 +209,13 @@ $(".up_arrow").ready(function(){
 });
 
 $("nav").ready(function(){
-	$(window).scroll(function(){ window.scrollY==0 ? $("nav").removeClass("scrolled") : $("nav").addClass("scrolled");});
+	$(window).scroll(function(){ window.scrollY==0 ? window.screen.width > 1080 ? $("nav").removeClass("scrolled"): false : $("nav").addClass("scrolled");});
+	$(window).resize(function(){ window.screen.width <= 1080 ? $("nav").addClass("scrolled") : false;});
+	window.screen.width <= 1080 ? $("nav").addClass("scrolled") : false;
+	$(".open_mobile_menu").bind("click", function(){
+		IsMobileMenu ? $(".mobile_menu").slideUp(1000) : $(".mobile_menu").slideDown(1000);
+		IsMobileMenu = IsMobileMenu ? false : true;
+	});
 });
 
 $("#video_presentation").ready(function(){

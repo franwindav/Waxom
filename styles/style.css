@@ -15,6 +15,8 @@ input{
 .main{
 	display: flex;
 	position: fixed;
+	flex-direction: column;
+	align-items: center;
 	justify-content: center;
 	width: 100%;
 	background-color: transparent;
@@ -61,9 +63,6 @@ input{
 .main_menu{
 	display: inline-block;
 	font-size: 0;
-}
-.open_mobile_menu{
-	display: none;
 }
 .open_mobile_menu path,
 .open_mobile_menu circle{
@@ -119,6 +118,50 @@ input{
 .main_menu .search:hover path{
 	fill: #c7b299;
 }
+.mobile{
+	display: none !important;
+	align-items: center !important;
+}
+.mobile_menu{
+	display: none;
+	background-color: #191919;
+	padding-top: 10px;
+	padding-bottom: 8px;
+	width: 100%;
+}
+.main_mobile_menu{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.main_mobile_menu li{
+	list-style: none;
+	width: 80%;
+	height: 30px;
+	padding: 5px 0 5px 0;
+	border-bottom: 1px solid #333;
+}
+.main_mobile_menu li a{
+	text-decoration: none;
+	color: #bfbfbf;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+	transition: color 0.5s ease-in-out;
+}
+.main_mobile_menu li path{
+	transition: fill 0.5s ease-in-out;
+}
+.main_mobile_menu li:last-child{
+	border: none;
+}
+.main_mobile_menu .active,
+.main_mobile_menu li:hover a{
+	color: #c7b299 !important;
+}
+.main_mobile_menu li:hover path{
+	fill: #c7b299 !important;
+}
 .up_arrow{
 	position: fixed;
 	bottom: -50px;
@@ -147,9 +190,8 @@ input{
 	position: relative;
 	justify-content: space-between;
 	align-items: center;
-  	height: 1024px;
+	height: 1024px;
 	width: 100%;
-	min-height: 432px !important;
 	background-color: #191919;
 	overflow: hidden;
 	z-index: 0;
@@ -193,8 +235,8 @@ input{
 	left: 0;
 	width: 100%;
 	height: auto;
-	min-height: 432px !important;
-	min-width: 810px !important;
+	/* min-height: 432px !important; */
+	min-width: 610px !important;
 	z-index: 50;
 }
 #sliders .slider .darkness{
@@ -1147,11 +1189,17 @@ input{
 	}
 }
 @media screen and (max-width: 1080px){
+	.main{
+		position: relative;
+	}
 	.main_menu{
 		display: none;
 	}
-	.open_mobile_menu{
-		display: block;
+	.mobile_menu {
+		top: 77px;
+	}
+	.mobile{
+		display: flex !important;
 	}
 	.main .container{
 		width: 80%;
@@ -1252,6 +1300,9 @@ input{
 	#mobile_devices .container div{
 		width: 80%;
 	}
+	#sliders .dots{
+		display: none;
+	}
 }
 @media screen and (max-width: 600px){
 	#sliders .arrow{
@@ -1303,6 +1354,22 @@ input{
 	}
 	#under .container ul{
 		padding-bottom: 20px;
+	}
+	#sliders .dots{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		bottom: auto;
+		left: auto;
+		top: 50%;
+		right: 10px;
+	}
+	#sliders .dot{
+		margin: 0 !important;
+	}
+	#sliders .dot:not(:last-child){
+		margin-bottom: 5px !important;
 	}
 }
 @media screen and (max-width: 550px){
