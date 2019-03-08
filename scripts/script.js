@@ -210,7 +210,7 @@ $(".up_arrow").ready(function(){
 
 $("nav").ready(function(){
 	$(window).scroll(function(){ window.scrollY==0 ? window.screen.width > 1080 ? $("nav").removeClass("scrolled"): false : $("nav").addClass("scrolled");});
-	$(window).resize(function(){ window.screen.width <= 1080 ? $("nav").addClass("scrolled") : false;});
+	$(window).resize(function(){ window.screen.width <= 1080 ? $("nav").addClass("scrolled") : $(".mobile_menu").slideUp(1000), IsMobileMenu = IsMobileMenu ? false : true;});
 	window.screen.width <= 1080 ? $("nav").addClass("scrolled") : false;
 	$(".open_mobile_menu").bind("click", function(){
 		IsMobileMenu ? $(".mobile_menu").slideUp(1000) : $(".mobile_menu").slideDown(1000);
